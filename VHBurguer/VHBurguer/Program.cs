@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // DTOs(Data Transfer Objects): Vai conter classes que serao usadas em diversas camadas
 // Aplications: Contera a logica principal do projeto
 //Service: Contem as regras de négócios
-// Repositories: Contem as implementacoes da interface
+// Repositories: Contem as implementacoes da interface: NÃO TEM REGRA DE NEGOCIO
 // Context: Contem a logica do banco de dados
 // Controller: Contem as requisicoes do HTTP
 
