@@ -285,3 +285,4 @@ C:\Users\46336142825\Desktop\VH Burguer\VHBurguer\VHBurguer\obj\Debug\net8.0\ref
 C:\Users\46336142825\Desktop\VH Burguer\VHBurguer\VHBurguer\obj\Debug\net8.0\VHBurguer.pdb
 C:\Users\46336142825\Desktop\VH Burguer\VHBurguer\VHBurguer\obj\Debug\net8.0\VHBurguer.genruntimeconfig.cache
 C:\Users\46336142825\Desktop\VH Burguer\VHBurguer\VHBurguer\obj\Debug\net8.0\ref\VHBurguer.dll
+C:\Users\46336142825\Desktop\VH Burguer\VHBurguer\VHBurguer\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

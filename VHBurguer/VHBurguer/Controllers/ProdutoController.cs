@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VHBurguer.Aplication.Services;
@@ -19,7 +20,7 @@ namespace VHBurguer.Controllers
         }
 
         // autenticacao do usuario
-        private int ObterUsarioLogado()
+        private int ObterUsarioIdLogado()
         {
             // busca no token/claims o valor armazenado como id do usario
             // ClaimTypes.NameIdentifier geralmente guarda o ID do usario no JWT
@@ -74,5 +75,59 @@ namespace VHBurguer.Controllers
             {
                 return NotFound(ex.Message);
             }
+        }
+        [HttpPost]
+        // indica que recebe dados no formato Multipart/from-data
+        // necessario quando enviamos arquivos (ex: imagem do produto)
+        [Consumes("Multipart/form-data")]
+        [Authorize] // exige login para alterar produtos
+        // [FromForm] -> diz que os dados vem do formulario da requisicao multipart/from-data
+        public ActionResult Adicionar([FromForm] CriarProdutoDto produtoDto)
+        {
+            try
+            {
+                int usuarioId = ObterUsarioIdLogado();
+
+                _service.Adicionar(produtoDto, usuarioId);
+
+                return StatusCode(201);
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        [Consumes("Multipart/form-data")]
+        [Authorize]
+        public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDto produtoDto)
+        {
+            try
+            {
+                _service.Atualizar(id, produtoDto);
+                return NoContent();
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public ActionResult Remover(int id)
+        {
+            try
+            {
+                _service.Remover(id);
+                return NoContent();
+            }
+
+            catch(DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

@@ -160,3 +160,4 @@ GO
 SELECT * FROM Produto
 SELECT * FROM Promocao
 SELECT * FROM ProdutoPromocao
+SELECT * FROM Usuario

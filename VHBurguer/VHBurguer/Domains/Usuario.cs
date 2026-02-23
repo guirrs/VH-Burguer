@@ -11,7 +11,7 @@ public partial class Usuario
 
     public string Email { get; set; } = null!;
 
-    public byte[]? Senha { get; set; }
+    public byte[]? Senha { get; set; } 
 
     public bool? StatusUsuario { get; set; }
 

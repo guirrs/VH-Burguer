@@ -18,7 +18,7 @@ namespace VHBurguer.Aplication.Services
         }
 
         // Compara a hash SHA256
-        private static bool VerificarSenha(string senhaDigitada, byte[] senhaHashBanco)
+        private static bool VerificarSenha(string    senhaDigitada, byte[] senhaHashBanco)
         {
             using var sha = System.Security.Cryptography.SHA256.Create();
             var hashDigitado = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(senhaDigitada));
