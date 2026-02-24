@@ -13,7 +13,7 @@ namespace VHBurguer.Controllers
     {
         private readonly CategoriaService _service;
 
-        CategoriaController(CategoriaService service)
+        public CategoriaController(CategoriaService service)
         {
             _service = service;
         }

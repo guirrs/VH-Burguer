@@ -26,12 +26,12 @@ namespace VHBurguer.Repositories
         public bool NomeExiste(string nome, int? categoriaIdAtual = null)
         {
             // AsQueryable -> cria a consulta inicial na tabela Categoria, mas ainda não existe nada no banco
-            var consulta =  _context.Categoria.AsQueryable();
+            var consulta = _context.Categoria.AsQueryable();
 
             // se foi informada um ID atual,
             // siginifica que estamos EDITANDO uma categoria existente
             // entao vamos ingnorar essa propria categoria na verificação
-            if(categoriaIdAtual.HasValue)
+            if (categoriaIdAtual.HasValue)
             {
                 // remove da busca a categoria com esse mesmo ID
                 // evita que o sistema considere o próprio registro como duplicado
@@ -52,10 +52,10 @@ namespace VHBurguer.Repositories
 
         public void Atualizar(Categoria categoria)
         {
-            Categoria categoriaBanco = _context.Categoria.FirstOrDefault(categoriaAux => 
+            Categoria categoriaBanco = _context.Categoria.FirstOrDefault(categoriaAux =>
             categoriaAux.CategoriaID == categoria.CategoriaID);
 
-            if(categoriaBanco == null)
+            if (categoriaBanco == null)
             {
                 return;
             }
@@ -69,7 +69,7 @@ namespace VHBurguer.Repositories
             Categoria categoriaBanco = _context.Categoria.FirstOrDefault(categoriaAux =>
             categoriaAux.CategoriaID == id);
 
-            if(categoriaBanco == null)
+            if (categoriaBanco == null)
             {
                 return;
             }
@@ -77,4 +77,5 @@ namespace VHBurguer.Repositories
             _context.Categoria.Remove(categoriaBanco);
             _context.SaveChanges();
         }
+    }
 }
