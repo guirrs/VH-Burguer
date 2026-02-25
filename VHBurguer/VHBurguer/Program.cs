@@ -1,56 +1,82 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
+using VHBurguer.Aplication.Authenticacao;
 using VHBurguer.Aplication.Services;
 using VHBurguer.Contexts;
 using VHBurguer.Interfaces;
 using VHBurguer.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using VHBurguer.Aplication.Authenticacao;
+using VHBurguer.Aplication.Services;
+using VHBurguer.Contexts;
+using VHBurguer.Interfaces;
+using VHBurguer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Explicacoes das pastas:
-// DTOs(Data Transfer Objects): Vai conter classes que serao usadas em diversas camadas
-// Aplications: Contera a logica principal do projeto
-//Service: Contem as regras de négócios
-// Repositories: Contem as implementacoes da interface: NÃO TEM REGRA DE NEGOCIO
-// Context: Contem a logica do banco de dados
-// Controller: Contem as requisicoes do HTTP
+// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    c =>
+    {
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            Scheme = "bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "Value: Bearer TokenJWT"
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+    }
+    );
 
 // chama nossa conexão com o banco de dados
 builder.Services.AddDbContext<VH_BurguerContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-// Usuario
-// Esse redirecionamento é uma camada de seguranca
+//Usuario
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-// Para poder usar os metodos da service
 builder.Services.AddScoped<UsuarioService>();
 
-// Produto
+//Produto
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<ProdutoService>();
 
-// JWT
-builder.Services.AddScoped<GeradorTokenJwt>();
-builder.Services.AddScoped<AutenticacaoService>();
-
-// Categoria
+//Categoria
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<CategoriaService>();
 
-// Promocao
+//Promocao
 builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
 builder.Services.AddScoped<PromocaoService>();
 
-// LogAlteracaoProduto
+//Log de alteração do produto
 builder.Services.AddScoped<ILogAlteracaoProdutoRepository, LogAlteracaoProdutoRepository>();
 builder.Services.AddScoped<LogAlteracaoProdutoService>();
+
+//jwt
+builder.Services.AddScoped<GeradorTokenJwt>();
+builder.Services.AddScoped<AutenticacaoService>();
+
 
 // Configura o sistema de autenticação da aplicação.
 // Aqui estamos dizendo que o tipo de autenticação padrão será JWT Bearer.
@@ -117,6 +143,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); // Diz para a aplicação usar o sistema de autenticação configurado acima (JWT Bearer).
 app.UseAuthorization();
 
 app.MapControllers();
