@@ -68,7 +68,7 @@ namespace VHBurguer.Aplication.Services
 
         public LerUsuarioDto ObterPorId(int id)
         {
-            Usuario usuario = _repository.ObterPorId(id);
+            Usuario? usuario = _repository.ObterPorId(id);
             if(usuario == null)
             {
                 throw new DomainException("Usuario não existe.");
@@ -125,13 +125,14 @@ namespace VHBurguer.Aplication.Services
 
             if(usuarioComMesmoEmail != null && usuarioComMesmoEmail.UsuarioID != id)
             {
-                throw new DomainException("Ja eciste um usuário com esta e-mail.");
+                throw new DomainException("Ja existe um usuário com esta e-mail.");
             }
 
             // Substitui as informcacoes do banco e inseriando as do usuarioDto
             usuarioBanco.Nome = usuarioDto.Nome;
             usuarioBanco.Email = usuarioDto.Email;
             usuarioBanco.Senha = HashSenha(usuarioDto.Senha);
+            usuarioBanco.StatusUsuario = usuarioDto.StatusUsuario;
 
             _repository.Atualizar(usuarioBanco);
 
@@ -140,7 +141,7 @@ namespace VHBurguer.Aplication.Services
 
         public void Remover(int id)
         {
-            Usuario usuario = _repository.ObterPorId(id);
+            Usuario? usuario = _repository.ObterPorId(id);
 
             if( usuario == null)
             {

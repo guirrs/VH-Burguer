@@ -32,13 +32,18 @@ namespace VHBurguer.Aplication.Services
 
             if(usuario == null)
             {
-                throw new DomainException("E-mail ou senha invalidos.");
+                throw new DomainException("E-mail ou senha inválidos.");
             }
 
             // compara a senha digitada com a senha armazenada
             if (!VerificarSenha(loginDto.Senha, usuario.Senha))
             {
                 throw new DomainException("E-mail ou senha invalidos");
+            }
+
+            if(usuario.StatusUsuario == false)
+            {
+                throw new DomainException("Usuário Inativo");
             }
 
             // gerando token DTO

@@ -6,5 +6,6 @@ namespace VHBurguer.Interfaces
     {
         List<Log_AlteracaoProduto> Listar();
         List<Log_AlteracaoProduto> ListarPorProduto(int produtoId);
+        public bool VerficarProduto(int produtoId);
     }
 }

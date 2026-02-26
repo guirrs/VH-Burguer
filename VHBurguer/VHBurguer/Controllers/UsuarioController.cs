@@ -31,13 +31,15 @@ namespace VHBurguer.Controllers
         [HttpGet("{id}")]
         public ActionResult<LerUsuarioDto> ObterPorId(int id)
         {
-            LerUsuarioDto usuario = _service.ObterPorId(id);
-            if (usuario == null)
+            try
             {
-                return NotFound(); // Não encontrado = HTTP: 404
+                LerUsuarioDto usuario = _service.ObterPorId(id);
+                return Ok(usuario);
             }
-
-            return Ok(usuario);
+            catch(DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("email/{email}")]

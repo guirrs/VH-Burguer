@@ -1,4 +1,6 @@
-﻿using VHBurguer.Contexts;
+﻿using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
+using VHBurguer.Contexts;
 using VHBurguer.Domains;
 using VHBurguer.Interfaces;
 
@@ -20,9 +22,20 @@ namespace VHBurguer.Repositories
         }
 
         public List<Log_AlteracaoProduto> ListarPorProduto( int produtoId)
-        {
+        { 
             List<Log_AlteracaoProduto> AlteracoesProduto = _context.Log_AlteracaoProduto.Where(log => log.ProdutoID == produtoId).OrderByDescending(log => log.DataAlteracao).ToList();
             return AlteracoesProduto;
+        }
+
+        public bool VerficarProduto(int produtoId)
+        {
+            Produto? produto = _context.Produto.FirstOrDefault(produto => produto.ProdutoID == produtoId);
+
+            if (produto == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VHBurguer.Aplication.Services;
+using VHBurguer.Exceptions;
 
 namespace VHBurguer.Controllers
 {
@@ -24,7 +25,14 @@ namespace VHBurguer.Controllers
         [HttpGet("produto/{id}")]
         public ActionResult ListarProduto(int id)
         {
-            return Ok(_service.ListarPorPrduto(id));
+            try
+            {
+                return Ok(_service.ListarPorPrduto(id));
+            }
+            catch(DomainException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
