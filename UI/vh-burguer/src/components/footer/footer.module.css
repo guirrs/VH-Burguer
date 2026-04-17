@@ -1,0 +1,50 @@
+#footer{
+    background-color: var(--vinho);
+    gap: 10px;
+}
+
+#container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 8%;
+}
+
+#container h1{
+    color: var(--laranja-destaque);
+}
+
+#container nav{
+    display: flex;
+    gap: 20px;
+}
+
+#logo_footer{
+    width: 250px;
+}
+
+#linha_decorativa{
+    background-color: var(--laranja-destaque);
+    border: none;
+    width: 85%;
+    height: 1px;
+    margin: 15px auto;
+}
+
+#copyright{
+    color: var(--laranja-destaque);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+    font-size: 17px;
+}
+
+@media(max-width: 768px){
+    #logo_footer{
+        width: 200px;
+    }
+
+    #copyright{
+        font-size: 12px;
+    }
+}
