@@ -1,0 +1,56 @@
+#card{
+    width: 387px;
+    height: 609px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-fredoka);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.50);
+    
+}
+
+#card img{
+    width: 387px;
+    height: 256px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 387px;
+    height: 70px;
+    background-color: var(--vinho);
+    color: white;
+    font-size: 28px;
+}
+
+#card p{
+    width: 387px;
+    height: 216px;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+}
+
+#preco{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    justify-content: center;
+    width: 387px;
+    height: 67px;
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}

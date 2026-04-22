@@ -1,6 +1,7 @@
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import styles from "./home.module.css"
+import ListaProduto from "@/components/lista-produto/lista-produto";
 
 const Home = () => {
     return (
@@ -35,6 +36,7 @@ const Home = () => {
                 </section>
                 <section id={styles.cardapio}>
                     <h3>CARDÁPIO</h3>
+                    <ListaProduto/>
                 </section>
                 <section id={styles.unidades}>
                     <img src="../imgs/unidade.jpeg" alt="" />

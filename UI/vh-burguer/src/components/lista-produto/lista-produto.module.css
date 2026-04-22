@@ -1,0 +1,14 @@
+#Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Listas{
+    display: flex;
+    margin-right: 10%;
+    height: 10%;
+    width: 40%;
+    gap: 0%;
+    
+}
