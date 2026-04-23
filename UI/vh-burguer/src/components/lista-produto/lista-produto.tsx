@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CardProduto from "../card-produto/card-produto";
 import styles from "./lista-produto.module.css";
 
@@ -5,16 +6,20 @@ const ListaProduto = () => {
     return (
         <>
             <div id={styles.Container}>
-                <button>
+                <button id={styles.Filtro}>
                     <p>Filtrar</p>
                     <img src="../imgs/vector.svg" alt="" />
                 </button>
                 <div id={styles.Listas}>
-                    <button>Todas as promoções</button>
-                    <button>Todos os Produtos</button>
+                    <Link href="/promocoes">Todas as promoções</Link>
+                    <Link href="/produtos">Todos os Produtos</Link>
                 </div>
             </div>
-            <CardProduto />
+            <div id={styles.Itens}>
+                <CardProduto />
+                <CardProduto />
+                <CardProduto />
+            </div>
         </>
     )
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./header.module.css"
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
                         <a href="">Destaque</a>
                         <a href="">Cardápio</a>
                         <a href="">Unidades</a>
-                        <a href="">Login</a>
+                        <Link href="/login">Login</Link>
                     </nav>
                     <button id={styles.btn_icon}>
                         <img src="../imgs/icon_hamburguer.svg" alt="Ícone que representa um hamburguer para acessar o menu lateral." />

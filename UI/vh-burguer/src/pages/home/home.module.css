@@ -1,5 +1,5 @@
 /* BANNER */
-#banner{
+.banner{
     align-items: center;
     display: flex;
     justify-content: center;
@@ -8,22 +8,22 @@
     height: 75vh;
 }
 
-#banner h1{
+.banner h1{
     color: var(--laranja-destaque);
     font-size: 60px;
 }
 
-#banner img{
+.banner img{
     width: 950px;
     height: auto;
 }
 
-#banner div{
+.banner div{
     display: flex;
     gap: 30px;
 }
 
-#banner button{
+.banner button{
     height: 60px;
     width: 400px;
     font-size: 28px;
@@ -52,7 +52,7 @@
 }
 
 /* DESTAQUE */
-#destaque{
+.destaque{
     background-color: var(--fundo-escuro);
     color: white;
     display: flex;
@@ -61,11 +61,11 @@
     gap: 20px;
 }
 
-#destaque p{
+.destaque p{
     font-size: 25px;
 }
 
-#destaque h2{
+.destaque h2{
     font-size: 40px;
 }
 
@@ -112,19 +112,19 @@
 }
 
 /* CARDAPIO */
-#cardapio{
+.cardapio{
     background-color: var(--fundo-claro);
-    height: 400vh;
+    height: 150vh;
 }
 
-#cardapio h3{
+.cardapio h3{
     color: var(--laranja-destaque);
     font-size: 60px;
     display: flex;
     justify-content: center;
     padding-top: 100px;
 }
-#cardapio button{
+.cardapio button{
     display: flex;
     justify-content: center;
     font-size: 28px;
@@ -137,13 +137,13 @@
     margin: 8% 0 0px 10%;
 }
 
-#cardapio button img{
+.cardapio button img{
     height: auto;
     width: 15%;
 }
 
 /* UNIDADES */
-#unidades{
+.unidades{
     background-color: var(--fundo-escuro);
     color: white;
     display: flex;
@@ -152,63 +152,63 @@
     align-items: center;
 }
 
-#unidades img{
+.unidades img{
     width: 40%;
     height: 468px;
     border-radius: 20px;
 }
 
-#unidades h4{
+.unidades h4{
     font-size: 35px;
     padding-bottom: 3 0px;
 }
 
-#unidades li{
+.unidades li{
     font-size: 28px;
     margin: 40px 0 0 25px;
 }
 
 @media(max-width: 1200px){
 
-    #unidades h4{
+    .unidades h4{
         font-size: 25px;
     }
 
-    #unidades li{
+    .unidades li{
         font-size: 20px;
     }
 
     .lanches{
         width: 110%;
     }
-    #unidades img{
+    .unidades img{
         width: 500px;
     }
 }
 
 @media(max-width: 1000px){
-    #banner h1{
+    .banner h1{
         font-size: 50px;
     }
 
-    #unidades img{
+    .unidades img{
         width: 450px;
         height: 400px;
     }
 
-    #banner button{
+    .banner button{
     width: 300px;
 }
-    #banner img{
+    .banner img{
         width: 700px;
     }
 }
 
 @media(max-width: 850px){
-    #banner h1{
+    .banner h1{
         font-size: 50px;
     }
-    #unidades img{
+    .unidades img{
         width: 350px;
         height: 300px;
     }

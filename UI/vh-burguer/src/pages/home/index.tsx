@@ -8,7 +8,7 @@ const Home = () => {
         <>
             <Header />
             <main>
-                <section id={styles.banner}>
+                <section className={styles.banner}>
                     <h1>BEM-VINDO AO VH BURGUER</h1>
                     <img src="../imgs/foto_de_hamburgueres.png" alt="" />
                     <div>
@@ -18,7 +18,7 @@ const Home = () => {
                 </section>
 
 
-                <section id={styles.destaque}>
+                <section className={styles.destaque}>
                     <div id={styles.ms_pedidos}>
                         <p>Os queridinhos da galera</p>
                         <h2>MAIS PEDIDOS</h2>
@@ -34,11 +34,12 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-                <section id={styles.cardapio}>
+
+                <section className={styles.cardapio}>
                     <h3>CARDÁPIO</h3>
                     <ListaProduto/>
                 </section>
-                <section id={styles.unidades}>
+                <section  className={styles.unidades}>
                     <img src="../imgs/unidade.jpeg" alt="" />
                     <div>
                         <h4>NOSSAS UNIDADES</h4>
