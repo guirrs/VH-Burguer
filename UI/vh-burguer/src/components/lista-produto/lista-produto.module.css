@@ -1,20 +1,40 @@
 #Container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    width: 100%;
 }
 
 #Filtro{
-    height: 0;
+    height: 60px;
+    margin: auto 0;
 }
 
 #Listas{
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-right: 10%;
     height: 10%;
     width: 40%;
     gap: 0%;
     
+}
+
+.botaoLista {
+    background-color: var(--laranja-destaque);
+    height: 60px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 28px;
+    align-items: center;
+    /* --- Adicione estas linhas --- */
+    text-decoration: none; /* Tira o sublinhado azul */
+    color: inherit;       /* Faz o texto herdar a cor do pai (ou defina uma cor, ex: white) */
+    display: inline-flex; /* Melhora o alinhamento com align-items */
+    justify-content: center; /* Centraliza horizontalmente */
+    outline: none;       
 }
 
 #Itens{

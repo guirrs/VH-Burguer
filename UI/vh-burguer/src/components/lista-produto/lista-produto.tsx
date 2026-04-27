@@ -11,8 +11,8 @@ const ListaProduto = () => {
                     <img src="../imgs/vector.svg" alt="" />
                 </button>
                 <div id={styles.Listas}>
-                    <Link href="/promocoes">Todas as promoções</Link>
-                    <Link href="/produtos">Todos os Produtos</Link>
+                    <Link className={styles.botaoLista} href="/promocoes">Todas as promoções</Link>
+                    <Link className={styles.botaoLista} href="/produtos">Todos os Produtos</Link>
                 </div>
             </div>
             <div id={styles.Itens}>

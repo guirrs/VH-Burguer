@@ -16,7 +16,7 @@
 #conteudo h3{
     color: var(--laranja-destaque);
     font-size: 80px;
-}
+}   
 
 #conteudo img{
     height: 50vh;
@@ -50,4 +50,41 @@
 
 #preco{
     width: 100%;
+}
+
+@media(max-width: 1250px){
+    
+    #conteudo h3{
+        font-size: 50px;
+    }
+
+    #conteudo img{
+    height: 30vh;
+    }
+
+    .caixa p, .caixa li{
+    font-size: 18px;
+    }
+}
+
+@media (max-width: 780px){
+    #conteudo{
+        height: 80vh;
+    }
+
+    #conteudo h3{
+        font-size: 35px;
+    }
+
+    #conteudo img{
+    height: 25vh;
+    }
+
+    .caixa p, .caixa li{
+    font-size: 16px;
+    }
+
+    .caixa h4{
+    font-size: 17px;
+    }
 }
