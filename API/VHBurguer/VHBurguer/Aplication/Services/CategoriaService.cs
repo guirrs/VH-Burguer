@@ -67,6 +67,8 @@ namespace VHBurguer.Aplication.Services
             {
                 Nome = criarDto.Nome
             };
+
+            _repository.Adicionar(categoria);
         }
 
         public void Atualizar(int id, CriarCategoriaDto criaDto)

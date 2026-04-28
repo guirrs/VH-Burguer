@@ -1,14 +1,17 @@
 import { api } from "./api";
+import secureLocalStorage from "react-secure-storage";
 
 export async function login(email: string, senha:string){
     try{
         //requisicao
          const reponse = await api.post("Autenticacao/login", {email, senha})
 
-         console.log("Deu bom fella");
-         console.log(reponse);
+         const token = reponse.data.token;
+
+         secureLocalStorage.setItem("tokenSeguro", token);
     }
-    catch(error){
+
+    catch(error: unknown){
         throw new Error("Email ou senha inválidos.");
     }
 }
