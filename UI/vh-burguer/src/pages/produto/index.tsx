@@ -1,8 +1,33 @@
 import Footer from "@/components/footer/footer";
 import SubHeader from "@/components/sub-header/sub-header";
 import styles from "./produto.module.css"
+import { useEffect, useState } from "react";
+import { listarCategoria } from "../api/categoriaService";
+import { Console } from "console";
+
+interface categoria {
+    categoriaID: number,
+    categoriaNome: string
+}
 
 const Produto = () => {
+
+    const[categorias, setCategorias] = useState<categoria[]>([]);
+
+     function listarCategoriaEmProduto() {
+        const lista = listarCategoria();
+
+        //caso voce só chama a lista, vai chamar toda a requisicao, por isso que voce tem que especificar só quer a lista do dados
+        setCategorias(lista.data);
+
+        console.log(lista.data);
+    }
+
+    //quando produto for renderizado, a funcao listarCategoriaEmProduto acontece
+    useEffect(() =>{
+        listarCategoriaEmProduto();
+    }, [])
+
     return (
         <>
             <SubHeader />
@@ -22,8 +47,12 @@ const Produto = () => {
                     </div>
                     <div className={styles.info}>
                         <label>Categoria</label>
-                        <input type="text" placeholder="Selecione a categoria"/>
-                        <a href="">Adicionar categoria</a>
+                        <select>
+                            {categorias.map((item) => (
+                                <option value={item.categoriaID} key={item.categoriaID}>{item.categoriaNome}</option>
+                            )
+                            )}
+                        </select>
                     </div>
                     <div className={`${styles.info} ${styles.url}`}>
                         <label>Url Imagem</label>
