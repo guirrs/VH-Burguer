@@ -37,12 +37,27 @@
     color: var(--vinho);
     margin: 2% 0;
 }
+
 .preco{
     margin-top: 6%;
 }
 
+.categoria{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 3%;
+    width: 56%;
+    font-size: 24px;
+    gap: 10px;
+}
+
+.categoria input{   
+    border-radius: 10px;
+}
+
 .url{
-    margin-top: 6%;
+
 }
 
 .descricao input{

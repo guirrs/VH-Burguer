@@ -11,7 +11,8 @@ export async function login(email: string, senha:string){
          secureLocalStorage.setItem("tokenSeguro", token);
     }
 
-    catch(error: unknown){
+    //eslint-disable-next-line
+    catch(error: any){
         throw new Error("Email ou senha inválidos.");
     }
 }

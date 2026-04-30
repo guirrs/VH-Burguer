@@ -19,9 +19,24 @@ namespace VHBurguer.Aplication.Services
         public List<LerProdutoDto> Listar()
         {
             List<Produto> produtos = _repository.Listar();
-            
+
             // Converte todos os produtos para DTO
-            List<LerProdutoDto> produtoDtos = produtos.Select(ProdutoParaDto.ConverterParaDto).ToList();
+            List<LerProdutoDto> produtoDtos = produtos.Select(produto =>
+            new LerProdutoDto
+            {
+                ProdutoID = produto.ProdutoID,
+                Nome = produto.Nome,
+                Preco = produto.Preco,
+                Descricao = produto.Descricao,
+                StatusProduto = produto.StatusProduto,
+
+                CategoriasIds = produto.Categoria.Select(categoriaAux => categoriaAux.CategoriaID).ToList(),
+                Categorias = produto.Categoria.Select(categoriaAux => categoriaAux.Nome).ToList(),
+
+                //UsuarioID = produto.UsuarioID,
+                //UsuarioNome = produto.Usuario.Nome,
+                //UsuarioEmail = produto.Usuario.Email
+            }).ToList();
 
             return produtoDtos;
         }
@@ -35,7 +50,7 @@ namespace VHBurguer.Aplication.Services
                 throw new DomainException("Produto não encontrado.");
             }
 
-            return ProdutoParaDto.ConverterParaDto(produto);
+            return ProdutoParaDto.ConverterParaDto(produto, null);
         }
 
         private static void ValidarCadastro(CriarProdutoDto produtoDto)
@@ -99,7 +114,21 @@ namespace VHBurguer.Aplication.Services
 
             _repository.Adicionar(produto, produtoDto.CategoriasIds);
 
-            return ProdutoParaDto.ConverterParaDto(produto);
+            return new LerProdutoDto
+            {
+                ProdutoID = produto.ProdutoID,
+                Nome = produto.Nome,
+                Preco = produto.Preco,
+                Descricao = produto.Descricao,
+                StatusProduto = produto.StatusProduto,
+
+                CategoriasIds = produto.Categoria.Select(categoriaAux => categoriaAux.CategoriaID).ToList(),
+                Categorias = produto.Categoria.Select(categoriaAux => categoriaAux.Nome).ToList(),
+
+                //UsuarioID = produto.UsuarioID,
+                //UsuarioNome = produto.Usuario.Nome,
+                //UsuarioEmail = produto.Usuario.Email
+            };
         }
 
         public LerProdutoDto Atualizar(int id, AtualizarProdutoDto produtoDto)
@@ -145,7 +174,21 @@ namespace VHBurguer.Aplication.Services
 
             _repository.Atualizar(produtoBanco, produtoDto.CategoriasIds);
 
-            return ProdutoParaDto.ConverterParaDto(produtoBanco);
+            return new LerProdutoDto
+            {
+                ProdutoID = produtoBanco.ProdutoID,
+                Nome = produtoBanco.Nome,
+                Preco = produtoBanco.Preco,
+                Descricao = produtoBanco.Descricao,
+                StatusProduto = produtoBanco.StatusProduto,
+
+                CategoriasIds = produtoBanco.Categoria.Select(categoriaAux => categoriaAux.CategoriaID).ToList(),
+                Categorias = produtoBanco.Categoria.Select(categoriaAux => categoriaAux.Nome).ToList(),
+
+                //UsuarioID = produtoBanco.UsuarioID,
+                //UsuarioNome = produtoBanco.Usuario.Nome,
+                //UsuarioEmail = produtoBanco.Usuario.Email
+            };
     }
 
         public void Remover(int id)
