@@ -1,9 +1,35 @@
 import Footer from '@/components/footer/footer'; // Adicionado aspas
 import styles from './descricao-produto.module.css'; // Adicionado aspas
 import SubHeader from '@/components/sub-header/sub-header'; // Adicionado aspas
+import { useState } from 'react';
+import { listarPorId } from '@/pages/api/produtoService';
+import { useParams } from 'next/navigation';
+
+interface Produto{
+    produtoID: number,
+    nome: string,
+    preco: number,
+    descricao: string,
+    imagemUrl: string,
+}
 
 // Corrigido o nome de DecricaoProduto para DescricaoProduto
 const DescricaoProduto = () => {
+
+  const[produto, setProduto] = useState<Produto>();
+
+  const {id} = useParams();
+
+  async function listarProduto(){
+    try{
+        const response = await listarPorId(Number(id));
+        console.log(response);
+        setProduto(response);
+    }
+    catch(error: any){
+      console.log(error.message);
+    }
+  }
   return (
     <>
       <main id={styles.page}>

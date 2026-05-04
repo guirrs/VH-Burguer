@@ -1,25 +1,25 @@
-import { Console } from "console";
 import { api } from "./api";
 
 type Produto = {
-    Nome: string,
-    Descricao: string,
-    Preco: string,
-    Imagem: File | null,
-    CategoriasIds: number[]
+    nome: string,
+    descricao: string,
+    preco: string,
+    imagem: File | null,
+    categoriasIds: number[],
+    imagemUrl: string
 }
 
 export async function cadastrarProduto(dados: Produto){
     try{
         const formData = new FormData();
 
-        formData.append("Nome", dados.Nome);
-        formData.append("Descricao", dados.Descricao);
-        formData.append("Preco", dados.Preco);
-        if(dados.Imagem){
-            formData.append("Imagem", dados.Imagem);
+        formData.append("Nome", dados.nome);
+        formData.append("Descricao", dados.descricao);
+        formData.append("Preco", dados.preco);
+        if(dados.imagem){
+            formData.append("Imagem", dados.imagem);
         }
-        dados.CategoriasIds.forEach((id) => {
+        dados.categoriasIds.forEach((id) => {
             formData.append("CategoriasIds", id.toString());
         })
 
@@ -31,5 +31,37 @@ export async function cadastrarProduto(dados: Produto){
     //eslint-disable-next-line
     catch(error: any){
         throw new Error(error.response.data);
+    }
+}
+
+export async function listarProduto(){
+    try{
+        const response = await api.get("Produto");
+
+        const produtos = response.data.map((produto : Produto) => ({
+            ...produto,
+            imagemUrl: `${api.defaults.baseURL} ${produto.imagemUrl}`
+        }))
+
+        return produtos;
+    }
+    catch(error: any){
+        throw new Error(error.response.data);
+    }
+}
+
+export async function listarPorId(id: number){
+    try{
+        const response = await api.get("Produto/" + id);
+
+        const produtos = response.data.map((produto : Produto) => ({
+            ...produto,
+            imagemUrl: `${api.defaults.baseURL} ${produto.imagemUrl}`
+        }))
+
+        return produtos;
+    }
+    catch(error: any){
+        throw new Error(error.response.data)
     }
 }

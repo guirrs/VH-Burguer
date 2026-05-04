@@ -12,6 +12,8 @@
 
         public bool? StatusProduto { get; set; }
 
+        public string ImagemUrl { get; set; } = string.Empty;
+
         // Categorias
         public List<int> CategoriasIds { get; set; } = new();
         public List<string> Categorias {  get; set; } = new();

@@ -50,7 +50,7 @@ namespace VHBurguer.Aplication.Services
                 throw new DomainException("Produto não encontrado.");
             }
 
-            return ProdutoParaDto.ConverterParaDto(produto, null);
+            return ProdutoParaDto.ConverterParaDto(produto);
         }
 
         private static void ValidarCadastro(CriarProdutoDto produtoDto)

@@ -5,7 +5,7 @@ namespace VHBurguer.Aplication.Conversoes
 {
     public class ProdutoParaDto
     {
-        public static LerProdutoDto ConverterParaDto(Produto produto, List<int>? categoriasIds)
+        public static LerProdutoDto ConverterParaDto(Produto produto)
         {
             return new LerProdutoDto
             {
@@ -18,7 +18,8 @@ namespace VHBurguer.Aplication.Conversoes
                 CategoriasIds = produto.Categoria?.Select(categoriaAux => categoriaAux.CategoriaID).ToList() ?? new List<int>(),
 
                 Categorias = produto.Categoria?.Select(categoriaAux => categoriaAux.Nome).ToList() ?? new List<string>(),
-                    
+
+                ImagemUrl = $"produto/{produto.ProdutoID}/imagem",
                 UsuarioID = produto.UsuarioID,
                 UsuarioNome = produto.Usuario.Nome,
                 UsuarioEmail = produto.Usuario.Email
