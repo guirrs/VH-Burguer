@@ -4,7 +4,7 @@ import styles from "./produto.module.css"
 import { useEffect, useState } from "react";
 import { listarCategoria } from "../api/categoriaService";
 import { cadastrarProduto } from "../api/produtoService";
-import { erro, notificacao } from "@/components/utils/toast";
+import { erro, notificacao } from "@/utils/toast";
 
 interface Categoria {
     categoriaID: number,

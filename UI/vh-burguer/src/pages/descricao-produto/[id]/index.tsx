@@ -1,7 +1,7 @@
 import Footer from '@/components/footer/footer'; // Adicionado aspas
 import styles from './descricao-produto.module.css'; // Adicionado aspas
 import SubHeader from '@/components/sub-header/sub-header'; // Adicionado aspas
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { listarPorId } from '@/pages/api/produtoService';
 import { useParams } from 'next/navigation';
 
@@ -11,6 +11,7 @@ interface Produto{
     preco: number,
     descricao: string,
     imagemUrl: string,
+    categorias: string[],
 }
 
 // Corrigido o nome de DecricaoProduto para DescricaoProduto
@@ -18,7 +19,9 @@ const DescricaoProduto = () => {
 
   const[produto, setProduto] = useState<Produto>();
 
-  const {id} = useParams();
+  const params = useParams();
+
+  const id = params?.id
 
   async function listarProduto(){
     try{
@@ -30,27 +33,38 @@ const DescricaoProduto = () => {
       console.log(error.message);
     }
   }
+
+  useEffect(() =>{
+    if(!id)
+      return;
+
+    setTimeout(() =>{
+      listarProduto();
+    }, 1000)
+  }, [id]);
+
   return (
     <>
       <main id={styles.page}>
         <SubHeader />
         <div id={styles.container}>
           <section id={styles.conteudo}>
-            <h3>Detalhes do X-Bacon</h3>
+            <h3>Detalhes do {produto?.nome}</h3>
             {/* Adicionado aspas no src */}
-            <img src="../imgs/HamburguerAlcatraComBacon.png" alt="Hamburguer" />
+            <img src={produto?.imagemUrl} alt="Hamburguer" />
             <section className={styles.caixaInfo}>
               <div className={`${styles.caixa} ${styles.descricao}`}>
                 <h4>Descrição</h4>
-                <p>Um pão brioche macio segura a fera: duas (ou três) carnes altas e suculentas, queijo cheddar derretido escorrendo pelas laterais, bacon crocante, cebola caramelizada no ponto adocicado, alface fresca, tomate e um molho especial intenso que amarra tudo. Para completar o ataque, uma camada extra de onion rings ou molho defumado que transforma cada mordida numa explosão.</p>
+                <p>{produto?.descricao}</p>
               </div>
               <div className={styles.caixa}>
                 <h4>Preço</h4>
-                <p id={styles.preco}>R$ 35,00</p>
+                <p id={styles.preco}>{produto?.preco}</p>
                 <h4>Categoria</h4>
                 <ul>
-                  <li>Premium</li>
-                  <li>Artesanal</li>
+                  {produto?.categorias.map((cat) => (
+                    <li key={cat}>{cat}</li>
+                  ))}
                 </ul>
               </div>
             </section>

@@ -1,4 +1,4 @@
-function formatarPreco(valor: number){
+export function formatarPreco(valor: number){
     return valor.toLocaleString("pt_BR", {
         style: "currency",
         currency: "BRL"

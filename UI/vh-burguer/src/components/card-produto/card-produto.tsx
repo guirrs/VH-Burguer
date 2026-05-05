@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./card-produto.module.css"
+import {formatarPreco} from "@/utils/formatacao";
 
 type Produto = {
     titulo: string,
