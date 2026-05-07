@@ -1,23 +1,20 @@
-import { api } from "./api"; 
+import { api } from "./api";
 
 export async function cadastrarCategoria(nome: string) {
-    try{
-        await api.post("Categoria", {nome});
-    }
-    //eslint-disable-next-line
-    catch(error: any){
+    try {
+        await api.post("Categoria", { nome });
+        // console.log("eba deu certo 🤗")
+    } catch (error: any) {
+        // console.log(error.response.data)
         throw new Error(error.response.data);
     }
 }
 
 export async function listarCategoria() {
-    try{
+    try {
         const response = await api.get("Categoria");
         return response;
-    }
-    //eslint-disable-next-line
-    catch(error: any)
-    {
+    } catch (error: any) {
         throw new Error(error.response.data);
     }
 }

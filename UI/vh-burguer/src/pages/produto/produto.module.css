@@ -1,98 +1,99 @@
-#container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--fundo-claro);
-}
-
-#container h3{
-    font-size: 70px;
-    color: var(--laranja-destaque);
-    margin-top: 5%;
-}
-
-.info{
-    width: 50%;
-    height: 6vh;
-    font-size: 24px;
-    margin-top: 3%;
-}
-
-
-.info input{
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    font-size: 24px;
-    padding: 0 18px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
-    border: 1px solid rgba(0,0,0,0.8);
-    outline: none;
-    margin-top: 1%;
-}
-
-.info a{
-    display: flex;
-    justify-content: end;
-    color: var(--vinho);
-    margin: 2% 0;
-}
-
-.preco{
-    margin-top: 6%;
-}
-
-.categoria{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding: 3%;
-    width: 56%;
-    font-size: 24px;
-    gap: 10px;
-}
-
-.categoria input{   
-    border-radius: 10px;
-}
-
-.url{
-
-}
-
-.descricao input{
-    height: 200%;
-}
-
-#botoes{
-    color: var(--vinho);
+.main_produto {
     display: flex;
     justify-content: center;
-    padding: 60px;
-    width: 50%;
-    height: 180px;
-}
+    align-items: center;
+    min-height: 100vh;
 
-#botoes button{
-    background-color: var(--laranja-destaque);
-    font-size: 24px;
-    width: 30%;
-    border-radius: 10px;
-    border: none;
-}
-
-#botoes button:hover{
     background-color: var(--fundo-claro);
-    border: 4px solid var(--laranja-destaque); 
 }
 
-@media(max-width: 1500px)
-{
-    .info{
-    margin-top: 7%;
+.section_flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 0;
 }
 
-    .descricao{
-        margin-bottom: 2%;
+.section_flex h1 {
+    color: var(--laranja-destaque);
+    font-size: var(--tamanho-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.formulario_produto {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.campo_form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.formulario_produto label {
+    font-size: var(--fonte-texto);
+    font-weight: 600;
+    color: #333;
+}
+
+.formulario_produto input,
+.formulario_produto textarea,
+.formulario_produto select {
+    padding: 12px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    /* border-radius: 10px; */
+    /* padding: 0 18px; */
+    /* font-size: 16px; */
+    background: #fff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.10);
+}
+
+.formulario_produto input:focus {
+    border-color: #ff8c00;
+}
+
+#btn_salvar {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: var(--tamanho-texto-btn);
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+    width: 50%;
+    align-self: center;
+}
+
+
+
+@media (max-width: 900px) {
+    .section_flex h1 {
+        font-size: var(--tamanho-titulo-responsivo);
     }
+
+    .formulario_produto {
+        width: 80%;
+
+    }
+
 }

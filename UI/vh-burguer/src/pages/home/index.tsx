@@ -1,55 +1,60 @@
-import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
 import styles from "./home.module.css"
 import ListaProduto from "@/components/lista-produto/lista-produto";
-
+//ESTRUTURA PADRÃO!
 const Home = () => {
     return (
         <>
             <Header />
             <main>
-                <section className={styles.banner}>
-                    <h1>BEM-VINDO AO VH BURGUER</h1>
-                    <img src="../imgs/foto_de_hamburgueres.png" alt="" />
-                    <div>
-                        <button id={styles.btn_atendente}>Chamar atendente</button>
-                        <button id={styles.btn_cardapio}>Ver cárdapio</button>
-                    </div>
-                </section>
-
-
-                <section className={styles.destaque}>
-                    <div id={styles.ms_pedidos}>
-                        <p>Os queridinhos da galera</p>
-                        <h2>MAIS PEDIDOS</h2>
-                    </div>
-                    <div id={styles.img_pequenas}>
-                        <div className={`${styles.lanches} ${styles.bacon}`}>
-                            <p>Lanches com</p>
-                            <h2>MUITO BACON</h2>
-                        </div>
-                        <div className={`${styles.lanches} ${styles.combos}`}>
-                            <p>Se tiver muita fome</p>
-                            <h2>SUPER COMBOS</h2>
+                <section id={styles.banner}>
+                    <div className={`${styles.container_banner} layout_guide`}>
+                        <h1>Bem-vindo ao VH Burguer</h1>
+                        <img src="../imgs/foto_de_hamburgueres.png" alt="Três hamburgueres com carne, queijo, salada e bacon." />
+                        <div id={styles.botoes_banner_hamburguer}>
+                            <button className={styles.btn_atendimento}> Chamar atendente</button>
+                            <button className={styles.btn_cardapio}> Ver cardárpio</button>
                         </div>
                     </div>
                 </section>
-
-                <section className={styles.cardapio}>
-                    <h3>CARDÁPIO</h3>
-                    <ListaProduto/>
+                <section className={styles.destaques} id="destaques" >
+                    <div className={`${styles.container_destaques} layout_guide`}>
+                        <article className={styles.card_destaque_mais_pedidos}>
+                            <p>Os queridinhos da galera</p>
+                            <p className={styles.destaque}>mais pedidos</p>
+                        </article>
+                        <div className={styles.cards_direita}>
+                            <article className={styles.card_destaque_muito_bacon}>
+                                <p>Lanches com</p>
+                                <p className={styles.destaque}>muito bacon</p>
+                            </article>
+                            <article className={styles.card_destaque_super_combos}>
+                                <p>Se tiver muita fome</p>
+                                <p className={styles.destaque}>Super combos</p>
+                            </article>
+                        </div>
+                    </div>
                 </section>
-                <section  className={styles.unidades}>
-                    <img src="../imgs/unidade.jpeg" alt="" />
-                    <div>
-                        <h4>NOSSAS UNIDADES</h4>
-                        <ul>
-                            <li>Centro – Av. Aurora, 742</li>
-                            <li>Jardim – Av. das Palmeiras, 1280</li>
-                            <li>Norte – Av. Horizonte, 305</li>
-                            <li>Sul – Av. Nova Esperança, 910</li>
+                <section className={styles.cardapio} id="cardapio">
+                    <div className={`${styles.container_cardapio} layout_guide`}>
+                        <h2>Cardápio</h2>
+                        {/* chamar componente da lista */}
+                        <ListaProduto/>
+                    </div>
+                </section>
+                <section className={styles.unidades} id="unidades">
+                     <div className={`${styles.container_unidades} layout_guide`}>
+                    <div className={styles.texto_unidades}>
+                        <h2>Unidades</h2>
+                        <ul className={styles.lista_unidades}>
+                            <li>Centro - Av. Aurora, 742</li>
+                            <li>Jardim - Av. das Palmeiras, 1280</li>
+                            <li>Norte - Av. Horizonte, 305</li>
+                            <li>Sul - Av. Nova Esperança, 910</li>
                         </ul>
                     </div>
+                </div>
                 </section>
             </main>
             <Footer />

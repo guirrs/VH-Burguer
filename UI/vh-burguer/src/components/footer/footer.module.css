@@ -1,50 +1,60 @@
-#footer{
-    background-color: var(--vinho);
-    gap: 10px;
-}
-
-#container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2% 8%;
-}
-
-#container h1{
-    color: var(--laranja-destaque);
-}
-
-#container nav{
-    display: flex;
-    gap: 20px;
-}
-
-#logo_footer{
-    width: 250px;
-}
-
-#linha_decorativa{
-    background-color: var(--laranja-destaque);
-    border: none;
-    width: 85%;
-    height: 1px;
-    margin: 15px auto;
-}
-
-#copyright{
-    color: var(--laranja-destaque);
+/* -----------------------------FOOTER--------------------------------- */
+#footer_home {
+    background: var(--vinho);
     display: flex;
     justify-content: center;
-    padding-bottom: 2%;
-    font-size: 17px;
+    align-items: center;
+
+    height: 20vh;
 }
 
-@media(max-width: 768px){
-    #logo_footer{
-        width: 200px;
-    }
-
-    #copyright{
-        font-size: 12px;
-    }
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
+
+#footer_icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo_vhburguer_footer {
+    width: 150px;
+
+}
+
+#icons {
+    display: flex;
+    gap: 14px;
+}
+
+#icons img {
+    width: 25px;
+    height: 25px;
+
+    display: block;
+    cursor: pointer;
+}
+
+/* linha */
+#linha {
+    height: 1px;
+    width: 100%;
+    background: var(--laranja-destaque);
+    opacity: .4;
+}
+
+/* copyright */
+#footer_home p {
+    margin: 0;
+    text-align: center;
+    color: var(--laranja-destaque);
+    font-size: var(--fonte-texto);
+    font-weight: 500;
+}
+
+
+
+/* -----------------------------FIM FOOTER--------------------------------- */

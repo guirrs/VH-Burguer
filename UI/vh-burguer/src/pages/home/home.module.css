@@ -1,215 +1,247 @@
-/* BANNER */
-.banner{
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+/* -----------------------------BANNER HAMBURGUER--------------------------------- */
+#banner {
     background-color: var(--fundo-claro);
-    height: 75vh;
-}
-
-.banner h1{
-    color: var(--laranja-destaque);
-    font-size: 60px;
-}
-
-.banner img{
-    width: 950px;
-    height: auto;
-}
-
-.banner div{
-    display: flex;
-    gap: 30px;
-}
-
-.banner button{
-    height: 60px;
-    width: 400px;
-    font-size: 28px;
-    border-radius: 10px;
-    border: none;
-}
-
-#btn_atendente{
-    background-color: var(--laranja-destaque);
-    color: var(--vinho);
-}
-
-#btn_atendente:hover{
-    background-color: var(--vinho);
-    color: var(--laranja-destaque);
-}
-
-#btn_cardapio{
-    background-color: var(--vinho);
-    color: var(--laranja-destaque);
-}
-
- #btn_cardapio:hover{ 
-    background-color: var(--laranja-destaque);
-    color: var(--vinho);
-}
-
-/* DESTAQUE */
-.destaque{
-    background-color: var(--fundo-escuro);
-    color: white;
     display: flex;
     justify-content: center;
-    padding: 95px;
-    gap: 20px;
+    align-items: center;
+    min-height: 90vh;
+    height: 90%;
 }
 
-.destaque p{
-    font-size: 25px;
-}
-
-.destaque h2{
-    font-size: 40px;
-}
-
-#ms_pedidos{
-    background-image: url("../../../public/imgs/mais_pedidos.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 600px;
-    width: 30%;
+.container_banner {
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    padding: 20px;
-    gap: 5px;
-    border-radius: 20px;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+    padding: 75px 0;
 }
 
-#img_pequenas{
-    gap: 20px;
-    width: 30%;
+.container_banner h1 {
+    color: var(--laranja-destaque);
+    font-size: var(--tamanho-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+
 }
 
-.lanches{
-    height: 290px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: end;
+#botoes_banner_hamburguer {
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn_atendimento,
+.btn_cardapio {
+    width: 300px;
+    height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    font-size: var(--tamanho-texto-btn);
+}
+
+.btn_atendimento {
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+}
+
+.btn_cardapio {
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+}
+
+.container_banner img {
+    width: 60%;
+    min-width: 400px;
+}
+
+/* -----------------------------FIM BANNER HAMBURGUER--------------------------------- */
+
+
+/* -----------------------------SECTION DESTAQUES--------------------------------- */
+
+.destaques {
+    background-color: var(--fundo-escuro);
+
+    height: 70vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.container_destaques {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    gap: 20px;
+
+    /* grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    width: 66%;
+    display: grid; */
+}
+
+.cards_direita {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_destaque_mais_pedidos,
+.card_destaque_muito_bacon,
+.card_destaque_super_combos {
+    color: var(--fundo-claro);
+}
+
+.card_destaque_mais_pedidos {
+    background-image: url(../../../public/imgs/mais_pedidos.png);
+    height: 80%;
+    width: 500px;
+    background-size: cover;
+
+    display: flex;
     flex-direction: column;
     justify-content: end;
+
     padding: 20px;
-    gap: 5px;
-    border-radius: 20px;
-}
 
-.bacon{
-    background-image: url("../../../public/imgs/muito_bacon.png");
-    margin-bottom: 20px;
-}
+    font-size: 25px;
 
-.combos{
-    background-image: url("../../../public/imgs//super_combos.png");
-}
-
-/* CARDAPIO */
-.cardapio{
-    background-color: var(--fundo-claro);
-    height: 150vh;
-}
-
-.cardapio h3{
-    color: var(--laranja-destaque);
-    font-size: 60px;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-}
-.cardapio button{
-    display: flex;
-    justify-content: center;
-    font-size: 28px;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-    background-color: var(--laranja-destaque);
-    border: none;
     border-radius: 10px;
-    margin: 8% 0 0px 10%;
 }
 
-.cardapio button img{
-    height: auto;
-    width: 15%;
-}
+.card_destaque_muito_bacon {
+    background-image: url(../../../public/imgs/muito_bacon.png);
+    height: 40%;
+    /* width: 400px; */
+    background-size: cover;
 
-/* UNIDADES */
-.unidades{
-    background-color: var(--fundo-escuro);
-    color: white;
     display: flex;
-    justify-content: space-evenly;
-    height: 690px;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+}
+
+.card_destaque_super_combos {
+    background-image: url(../../../public/imgs/super_combos.png);
+    height: 40%;
+    /* width: 500px; */
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    padding: 20px;
+
+    font-size: 25px;
+
+    border-radius: 10px;
+}
+
+
+.destaque {
+    text-transform: uppercase;
+}
+
+/* -----------------------------FIM SECTION DESTAQUES--------------------------------- */
+
+/* -----------------------------SECTION CARDAPIO--------------------------------- */
+.cardapio {
+    background-color: var(--fundo-claro);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container_cardapio {
+    display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    padding: 75px 0;
 }
 
-.unidades img{
-    width: 40%;
-    height: 468px;
-    border-radius: 20px;
+.container_cardapio h2 {
+    color: var(--laranja-destaque);
+    font-size: var(--tamanho-subtitulo);
+    font-weight: 500;
+
+    text-transform: uppercase;
 }
 
-.unidades h4{
-    font-size: 35px;
-    padding-bottom: 3 0px;
+
+
+/* -----------------------------FIM SECTION CARDAPIO--------------------------------- */
+
+
+/* -----------------------------SECTION UNIDADES--------------------------------- */
+.unidades {
+    background: linear-gradient(#00000080, #00000080),url("../../../public/imgs/unidade.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 60vh;
 }
 
-.unidades li{
-    font-size: 28px;
-    margin: 40px 0 0 25px;
+.container_unidades {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    height: 100%;
+
+    padding: 50px 0;
+
+
 }
 
-@media(max-width: 1200px){
+.texto_unidades {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-    .unidades h4{
-        font-size: 25px;
-    }
 
-    .unidades li{
-        font-size: 20px;
-    }
-
-    .lanches{
-        width: 110%;
-    }
-    .unidades img{
-        width: 500px;
-    }
 }
 
-@media(max-width: 1000px){
-    .banner h1{
-        font-size: 50px;
-    }
-
-    .unidades img{
-        width: 450px;
-        height: 400px;
-    }
-
-    .banner button{
-    width: 300px;
-}
-    .banner img{
-        width: 700px;
-    }
+.texto_unidades h2 {
+    font-size: var(--tamanho-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+    align-self: left;
 }
 
-@media(max-width: 850px){
-    .banner h1{
-        font-size: 50px;
-    }
-    .unidades img{
-        width: 350px;
-        height: 300px;
-    }
+.lista_unidades {
+    font-size: var(--fonte-texto);
+    line-height: 2.5;
+    list-style: none;
 }
+
+/* -----------------------------FIM SECTION UNIDADES--------------------------------- */
+
+

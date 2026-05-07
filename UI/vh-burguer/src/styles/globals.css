@@ -7,16 +7,20 @@
 }
 
 :root{
-    --fundo-claro : #F1F1F1;
+    --fundo-claro: #f1f1f1;
     --fundo-escuro: #232122;
     --laranja-destaque: #FFA300;
     --vinho: #451201;
+    --fonte-escura: #000000;
+
 
     --tamanho-titulo: 50px;
+    --tamanho-titulo-responsivo: 35px;
+    --tamanho-subtitulo: 50px;
     --tamanho-texto-btn: 17px;
+    --fonte-texto: 17px;
 }
 
 .layout_guide{
     width: 80%;
 }
-

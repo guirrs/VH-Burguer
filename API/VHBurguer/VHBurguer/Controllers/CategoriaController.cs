@@ -37,7 +37,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
         public ActionResult Adicionar(CriarCategoriaDto criarDto)
         {
             try
@@ -52,7 +51,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
         public ActionResult Atualizar(int id, CriarCategoriaDto criarDto)
         {
             try
@@ -68,7 +66,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         public ActionResult Remover(int id)
         {
             try

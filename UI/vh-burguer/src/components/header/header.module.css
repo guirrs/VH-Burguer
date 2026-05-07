@@ -16,7 +16,7 @@
 
 #nav_menu {
     display: flex;
-    gap: 35px;
+    gap: 25px;
 }
 
 #nav_menu a {
@@ -24,7 +24,7 @@
     color: var(--vinho);
     font-weight: 500;
 
-    font-size: 22px;
+    font-size: 16px;
 }
 
 #nav_menu a:hover {
@@ -38,12 +38,6 @@
 #btn_icon {
     display: none;
     border: none;
-}
-
-@media(max-width: 950){
-    #nav_menu a{
-        font-size: 16px;
-    }
 }
 
 @media (max-width: 768px) {

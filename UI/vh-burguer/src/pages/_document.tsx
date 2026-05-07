@@ -6,6 +6,7 @@ export default function Document() {
       <Head />
       <body>
         <Main />
+        {/* injeta os scripts que fazem o React funcionar no navegador. */}
         <NextScript />
       </body>
     </Html>

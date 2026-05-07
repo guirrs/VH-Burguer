@@ -1,67 +1,109 @@
 import { api } from "./api";
 
-type Produto = {
+//ProdutoFormulario => base para cadastro de prod
+type ProdutoFormulario = {
     nome: string,
     descricao: string,
     preco: string,
     imagem: File | null,
-    categoriasIds: number[],
-    imagemUrl: string
+    categoriasId: number[]
+}
+//ProdutoListagem => base para receber o produto da api
+interface ProdutoListagem {
+    nome: string,
+    descricao: string,
+    preco: string,
+    categoriasId: number[],
+    imagemUrl: string,
+    statusProduto: boolean
 }
 
-export async function cadastrarProduto(dados: Produto){
-    try{
+export async function cadastrarProduto(dados: ProdutoFormulario) {
+    try {
         const formData = new FormData();
 
-        formData.append("Nome", dados.nome);
-        formData.append("Descricao", dados.descricao);
-        formData.append("Preco", dados.preco);
-        if(dados.imagem){
-            formData.append("Imagem", dados.imagem);
+        formData.append("nome", dados.nome);
+        formData.append("descricao", dados.descricao);
+        formData.append("preco", dados.preco);
+        if (dados.imagem) {
+            formData.append("imagem", dados.imagem);
         }
-        dados.categoriasIds.forEach((id) => {
-            formData.append("CategoriasIds", id.toString());
+        dados.categoriasId.forEach((id) => {
+            formData.append("categoriaIds", id.toString());
         })
 
         await api.post("Produto", formData);
 
-        console.log("eba deu bom")
+        // console.log("eba deu bom!! 🍔🥳🤪😎")
 
-    }
-    //eslint-disable-next-line
-    catch(error: any){
+    } catch (error: any) {
         throw new Error(error.response.data);
     }
 }
 
-export async function listarProduto(){
-    try{
+export async function listarProduto() {
+    try {
         const response = await api.get("Produto");
 
-        const produtos = response.data.map((produto : Produto) => ({
+        // filtra somente produtos ativos
+        const produtosAtivos = response.data.filter(
+            (produto: ProdutoListagem) => produto.statusProduto === true
+        );
+
+        // adiciona URL completa da imagem
+        const produtos = produtosAtivos.map((produto: ProdutoListagem) => ({
             ...produto,
-            imagemUrl: `${api.defaults.baseURL} ${produto.imagemUrl}`
-        }))
+            imagemUrl: `${api.defaults.baseURL}${produto.imagemUrl}`
+        }));
 
         return produtos;
-    }
-    catch(error: any){
+
+    } catch (error: any) {
         throw new Error(error.response.data);
     }
 }
 
-export async function listarPorId(id: number){
-    try{
+export async function listarPorId(id: number) {
+    try {
         const response = await api.get("Produto/" + id);
 
-        const produtos = response.data.map((produto : Produto) => ({
-            ...produto,
-            imagemUrl: `${api.defaults.baseURL} ${produto.imagemUrl}`
-        }))
+        const produto = {
+            ...response.data,
+            imagemUrl: `${api.defaults.baseURL}${response.data.imagemUrl}`
+        };
 
-        return produtos;
-    }
-    catch(error: any){
+        return produto;
+
+    } catch (error: any) {
         throw new Error(error.response.data)
+    }
+}
+
+export async function excluirProduto(produtoId: number) {
+    try {
+        await api.delete("Produto/" + produtoId)
+    } catch (error: any) {
+        throw new Error(error.response.data)
+    }
+}
+
+export async function editarProduto(produtoId: number, dados: ProdutoFormulario) {
+    try {
+        const formData = new FormData();
+
+        formData.append("nome", dados.nome);
+        formData.append("descricao", dados.descricao);
+        formData.append("preco", dados.preco);
+        if (dados.imagem) {
+            formData.append("imagem", dados.imagem);
+        }
+        dados.categoriasId.forEach((id) => {
+            formData.append("categoriaIds", id.toString());
+        })
+
+        await api.put("Produto/" + produtoId, formData)
+
+    } catch (error: any) {
+        throw new Error(error.response.data);
     }
 }

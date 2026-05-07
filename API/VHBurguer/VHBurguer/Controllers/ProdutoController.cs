@@ -100,7 +100,6 @@ namespace VHBurguer.Controllers
 
         [HttpPut("{id}")]
         [Consumes("Multipart/form-data")]
-        [Authorize]
         public ActionResult Atualizar(int id, [FromForm] AtualizarProdutoDto produtoDto)
         {
             try
@@ -115,7 +114,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         public ActionResult Remover(int id)
         {
             try

@@ -1,6 +1,9 @@
 export function formatarPreco(valor: number){
-    return valor.toLocaleString("pt_BR", {
-        style: "currency",
-        currency: "BRL"
+    return valor.toLocaleString("pt-BR", {
+       style: "currency",
+       currency: "BRL"
     })
 }
+
+// 25.00
+// R$25,00

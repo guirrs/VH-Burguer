@@ -40,7 +40,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult Adicionar(CriarPromocaoDto promocaoDto)
         {
             try
@@ -55,7 +54,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
         public ActionResult Atualizar(int id, CriarPromocaoDto promocaoDto)
         {
             try
@@ -70,7 +68,6 @@ namespace VHBurguer.Controllers
         }
 
         [HttpDelete]
-        [Authorize]
         public ActionResult Remover(int id)
         {
             try

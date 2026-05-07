@@ -1,14 +1,12 @@
-import { redirect } from "next/dist/server/api-utils";
-
 export async function getServerSideProps() {
-    return {
-      redirect: {
-        destination: "/home",
-        permanent: false,
-      },
-    };
+  return {
+    redirect: {
+      destination: "/home",
+      permanent: false,
+    },
+  };
 }
 
-export default function Index(){
-  return null
+export default function Index() {
+  return null;
 }

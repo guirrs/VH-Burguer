@@ -1,7 +1,7 @@
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from 'react-toastify';
 
-const Toast = () =>{
-    return(
+const Toast = () => {
+    return (
         <ToastContainer/>
     )
 }
