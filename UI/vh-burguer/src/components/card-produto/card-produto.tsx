@@ -9,10 +9,11 @@ type Produto = {
     preco: number,
     produtoID: number,
     //Criando uma props que recebe uma função
-    onDelete: (produtoId: number) => void
+    onDelete: (produtoId: number) => void,
+    estaLogado: boolean
 }
 
-const CardProduto = ({titulo, descricao, img, preco, produtoID, onDelete } : Produto) => {
+const CardProduto = ({ titulo, descricao, img, preco, produtoID, onDelete, estaLogado }: Produto) => {
     return (
         <article className={styles.card_produto}>
             <Link href={"/detalhe-produto/" + produtoID}>
@@ -23,15 +24,19 @@ const CardProduto = ({titulo, descricao, img, preco, produtoID, onDelete } : Pro
             <p className={styles.desc_produto}>{descricao}</p>
             <div className={styles.campo_itens}>
                 <p className={styles.valor_produto}>{formatarPreco(preco)}</p>
-                <button onClick={() => onDelete(produtoID)}>
-                    <img src="/imgs/trash.svg" alt="ícone que representa exclusão" />
-                </button>
-                <Link href={"/produto?id="+produtoID}>
-                    <img src="/imgs/editar.svg" alt="ícone que representa edição" />
-                </Link>
-                <Link href={"/historico/" + produtoID}>
-                    <img src="/imgs/info.svg" alt="ícone que representa edição" />
-                </Link>
+                {estaLogado && (
+                    <>
+                        <button onClick={() => onDelete(produtoID)}>
+                            <img src="/imgs/trash.svg" alt="ícone que representa exclusão" />
+                        </button>
+                        <Link href={"/produto?id=" + produtoID}>
+                            <img src="/imgs/editar.svg" alt="ícone que representa edição" />
+                        </Link>
+                        <Link href={"/historico/" + produtoID}>
+                            <img src="/imgs/info.svg" alt="ícone que representa edição" />
+                        </Link>
+                    </>
+                )}
             </div>
         </article>
     )

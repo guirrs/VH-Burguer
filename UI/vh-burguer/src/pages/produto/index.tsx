@@ -8,6 +8,7 @@ import { erro, notificacao } from "@/utils/toast";
 import Toast from "@/components/toast/toast";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
+import { verificarAutenticacao } from "@/utils/auth";
 
 interface Categoria {
   categoriaID: number,
@@ -23,19 +24,11 @@ const Produto = () => {
   const [preco, setPreco] = useState<string>("");
   const [imagem, setImagem] = useState<File | null>(null);
   const [categoriasSelecionadas, setcategoriasSelecionadas] = useState<number[]>([]);
-  // const [telaEditar, setTelaEditar] = useState<Boolean>();
+  const[estaAutenticado, setEstaAutenticado] = useState(false);
 
   const router = useRouter();
   const id = router.query.id;
   let telaEditar = id ? true : false;
-  // console.log(id)
-  // if(id){
-  //   setTelaEditar(true);
-  // }else{
-  //   setTelaEditar(false);
-  // }
-  // console.log(telaEditar)
-  // console.log("aaaa")
 
   async function listarCatagoriaEmProduto() {
     const lista = await listarCategoria();
@@ -79,12 +72,25 @@ const Produto = () => {
     }
 
   }
-
   //quando produto for renderizado, a funcao listarCatagoriaEmProduto acontece
   useEffect(() => {
-    listarCatagoriaEmProduto();
-    carregarInformacoes();
-  }, [])
+    if(!verificarAutenticacao()){
+      router.push("/home")
+    }else{
+      setEstaAutenticado(true);
+      if(!router.isReady) return;
+
+      if(id){
+        carregarInformacoes();
+      }
+      listarCatagoriaEmProduto();
+    }
+  }, [router.isReady, id])
+
+  //a tela de produto não será renderizada
+  if(!estaAutenticado){
+    return null;
+  }
 
   return (
     <>
