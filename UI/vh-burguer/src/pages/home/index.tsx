@@ -4,6 +4,7 @@ import styles from "./home.module.css"
 import ListaProduto from "@/components/lista-produto/lista-produto";
 //ESTRUTURA PADRÃO!
 const Home = () => {
+
     return (
         <>
             <Header />

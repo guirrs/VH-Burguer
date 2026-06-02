@@ -45,7 +45,7 @@ const Login = () => {
                         </div>
                         <div className={styles.campo_form}>
                             <label htmlFor="senha">Senha</label>
-                            <input type="password" name="senha" placeholder="*******" required
+                            <input type="text" name="password" placeholder="*******" required
                                 value={senha} onChange={(e) => setSenha(e.target.value)} />
                         </div>
                         <a id={styles.esq_senha} href="">Esqueceu sua senha?</a>

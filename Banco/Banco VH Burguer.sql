@@ -161,5 +161,6 @@ SELECT * FROM Produto
 SELECT * FROM Promocao
 SELECT * FROM ProdutoPromocao
 SELECT * FROM Usuario
+SELECT * FROM Categoria
 
 DELETE FROM Produto WHERE ProdutoID = 4

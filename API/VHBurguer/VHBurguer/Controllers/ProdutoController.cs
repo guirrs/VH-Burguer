@@ -79,16 +79,16 @@ namespace VHBurguer.Controllers
         [HttpPost]
         // indica que recebe dados no formato Multipart/from-data
         // necessario quando enviamos arquivos (ex: imagem do produto)
-        [Consumes("Multipart/form-data")]
+        [Consumes("multipart/form-data")]
         //[Authorize] // exige login para alterar produtos
         // [FromForm] -> diz que os dados vem do formulario da requisicao multipart/from-data
-        public ActionResult Adicionar([FromForm] CriarProdutoDto produtoDto)
+        public async Task<ActionResult> Adicionar([FromForm] CriarProdutoDto produtoDto)
         {
             try
             {
                 int usuarioId = ObterUsarioIdLogado();
 
-                _service.Adicionar(produtoDto, usuarioId);
+                await _service.Adicionar(produtoDto, usuarioId);
 
                 return StatusCode(201);
             }

@@ -58,8 +58,6 @@ const Historico = () => {
     return (
         <>
             <SubHeader />
-            {/* "123" == 123 V*/}
-            {/* "123" === 123  F*/}
             <main className={styles.main_historico}>
                 <section className={styles.container_historico}>
                     <h1 className={styles.titulo_historico}>Histórico de alterações</h1>

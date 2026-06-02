@@ -13,6 +13,7 @@ using VHBurguer.Aplication.Services;
 using VHBurguer.Contexts;
 using VHBurguer.Interfaces;
 using VHBurguer.Repositories;
+using VHBurguer.Aplication.ContentSafe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,6 +77,8 @@ builder.Services.AddScoped<LogAlteracaoProdutoService>();
 //jwt
 builder.Services.AddScoped<GeradorTokenJwt>();
 builder.Services.AddScoped<AutenticacaoService>();
+
+builder.Services.AddScoped<IContenteSafetyRepository, ContenteSafetyService>();
 
 
 // Configura o sistema de autenticação da aplicação.

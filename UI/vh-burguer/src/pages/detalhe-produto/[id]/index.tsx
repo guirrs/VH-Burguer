@@ -50,7 +50,7 @@ const DetalheProduto = () => {
             <main className={styles.main_detalhes}>
                 <section className={`${styles.detalhes} layout_guide`}>
                     <article className={styles.card_detalhes} aria-label="Card de detalhes do produto">
-                        {produto ? (
+                        {   produto ? (
                             <>
                                 <h1 id="titulo-detalhes-produto" className={styles.detalhes_titulo}>Detalhes do {produto?.nome}</h1>
                                 <figure className={styles.card_detalhes_imagem} >

@@ -6,14 +6,14 @@ type ProdutoFormulario = {
     descricao: string,
     preco: string,
     imagem: File | null,
-    categoriasId: number[]
+    categoriasIds: number[]
 }
 //ProdutoListagem => base para receber o produto da api
 interface ProdutoListagem {
     nome: string,
     descricao: string,
     preco: string,
-    categoriasId: number[],
+    categoriasIds: number[],
     imagemUrl: string,
     statusProduto: boolean
 }
