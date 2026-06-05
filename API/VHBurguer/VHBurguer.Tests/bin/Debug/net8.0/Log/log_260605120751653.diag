@@ -1,0 +1,29 @@
+2026-06-05T12:07:51.6593628+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.9.1+cb5afc3bb9bb01ebd75b57f89e8358b914ee2a49
+2026-06-05T12:07:51.6684144+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2026-06-05T12:07:51.6695298+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2026-06-05T12:07:51.6695357+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 12:07:51.638
+2026-06-05T12:07:51.6695776+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 19216
+2026-06-05T12:07:51.6696540+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.27
+2026-06-05T12:07:51.6696583+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.27\System.Private.CoreLib.dll
+2026-06-05T12:07:51.6696664+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2026-06-05T12:07:51.6697025+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: C:\Users\46336142825\Desktop\VH-Burguer\API\VHBurguer\VHBurguer.Tests\bin\Debug\net8.0\VHBurguer.Tests.dll
+2026-06-05T12:07:51.6697900+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory C:\Users\46336142825\Desktop\VH-Burguer\API\VHBurguer\VHBurguer.Tests\bin\Debug\net8.0\Log --results-directory C:\Users\46336142825\Desktop\VH-Burguer\API\VHBurguer\TestResults --client-port 53659'
+2026-06-05T12:07:51.6709810+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2026-06-05T12:07:51.6847753+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2026-06-05T12:07:51.6941101+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable: 
+2026-06-05T12:07:51.8775364+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: '30ea7c6e-dd24-4152-a360-1387158cd41d' Version: '3.2.2' DisplayName: 'xUnit.net v3 Microsoft.Testing.Platform test framework' Description: 'xUnit.net v3 Microsoft.Testing.Platform test framework'
+2026-06-05T12:07:51.8824581+00:00 xUnit.net INFORMATION xUnit.net v3 In-Process Runner v3.2.2+728c1dce01 (64-bit .NET 8.0.27)
+2026-06-05T12:07:51.9062180+00:00 xUnit.net INFORMATION   Discovering: VHBurguer.Tests
+2026-06-05T12:07:51.9285140+00:00 xUnit.net INFORMATION   Discovered:  VHBurguer.Tests
+2026-06-05T12:07:51.9484938+00:00 xUnit.net INFORMATION   Starting:    VHBurguer.Tests
+2026-06-05T12:07:52.1246293+00:00 xUnit.net ERROR     VHBurguer.Tests.Services.categoriaServiceTests.Adicionar_DeveGerarErro_QuandoEstiverVazio [FAIL]
+2026-06-05T12:07:52.1248305+00:00 xUnit.net INFORMATION       Expected the exception message to match the equivalent of "Nome é obrigatóri", but "Nome é obrigatório" does not.
+2026-06-05T12:07:52.1250037+00:00 xUnit.net INFORMATION       Stack Trace:
+2026-06-05T12:07:52.1251889+00:00 xUnit.net INFORMATION            at FluentAssertions.Specialized.ExceptionAssertions`1.AssertExceptionMessage(Action`1 messageAssertion)
+2026-06-05T12:07:52.1252010+00:00 xUnit.net INFORMATION            at FluentAssertions.Specialized.ExceptionAssertions`1.WithMessage(String expectedWildcardPattern, String because, Object[] becauseArgs)
+2026-06-05T12:07:52.1252112+00:00 xUnit.net INFORMATION         C:\Users\46336142825\Desktop\VH-Burguer\API\VHBurguer\VHBurguer.Tests\Services\categoriaServiceTests.cs(40,0): at VHBurguer.Tests.Services.categoriaServiceTests.Adicionar_DeveGerarErro_QuandoEstiverVazio()
+2026-06-05T12:07:52.1252181+00:00 xUnit.net INFORMATION            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+2026-06-05T12:07:52.1252205+00:00 xUnit.net INFORMATION            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+2026-06-05T12:07:52.1270280+00:00 xUnit.net INFORMATION   Finished:    VHBurguer.Tests (ID = '761add896da6cf01ca885da4ea0a545c4bf8b0d044246108a65f17229d0d5ea5')
+2026-06-05T12:07:52.1299156+00:00 xUnit.net INFORMATION === TEST EXECUTION SUMMARY ===
+2026-06-05T12:07:52.1346475+00:00 xUnit.net INFORMATION    VHBurguer.Tests  Total: 2, Errors: 0, Failed: 1, Skipped: 0, Not Run: 0, Time: 0,189s
